@@ -1,0 +1,9 @@
+livecd/cdtar: /usr/lib/catalyst/livecd/cdtar/isolinux-elilo-memtest86+-cdtar.tar.bz2
+livecd/fsscript: /var/data/catalyst/release/releng/releases/weekly/scripts/livecd.sh
+livecd/fstype: squashfs
+livecd/gk_mainargs: --oldconfig --makeopts=-j7
+livecd/iso: livecd-amd64-hardened-installer-latest.iso
+livecd/type: gentoo-release-livecd
+livecd/volid: Gentoo Hardened AMD64 LiveCD
+livecd/overlay: /var/data/catalyst/release/releng/releases/weekly/overlays/common/overlay/livedvd
+livecd/root_overlay: /var/data/catalyst/release/releng/releases/weekly/overlays/common/root_overlay

@@ -1,0 +1,7 @@
+subarch: ###SUB_ARCH###
+version_stamp: ###VERSION###
+target: livecd-stage2
+rel_type: ###REL_TYPE###
+profile: ###REL_PROFILE###
+snapshot: ###REL_SNAPSHOT###
+source_subpath: ###SRC_PATH###
