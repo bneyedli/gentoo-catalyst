@@ -1,0 +1,4 @@
+boot/kernel: gentoo
+boot/kernel/gentoo/sources: gentoo-sources bc
+boot/kernel/gentoo/config: /etc/catalyst/release/releng/releases/weekly/kconfig/amd64/livecd-2.6.24.config
+boot/kernel/gentoo/use: atm usb

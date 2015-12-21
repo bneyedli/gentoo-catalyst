@@ -1,0 +1,9 @@
+livecd/cdtar: /usr/lib/catalyst/livecd/cdtar/isolinux-elilo-memtest86+-cdtar.tar.bz2
+livecd/fsscript: /etc/catalyst/release/releng/releases/weekly/scripts/livecd.sh
+livecd/fstype: squashfs
+livecd/gk_mainargs: --oldconfig --makeopts=-j7
+livecd/iso: ###SUB_ARCH###-###REL_TYPE###-installer-###VERSION###.iso
+livecd/type: gentoo-release-livecd
+livecd/volid: ccon.io livecd
+livecd/overlay: /etc/catalyst/release/releng/releases/weekly/overlays/common/overlay/livedvd
+livecd/root_overlay: /etc/catalyst/release/releng/releases/weekly/overlays/common/root_overlay

@@ -21,7 +21,6 @@ livecd/packages:
 	net-analyzer/tcpdump
 	net-analyzer/traceroute
   dev-python/boto
-### Masked (no keywords)
 	net-firewall/iptables
   net-firewall/ufw
 	net-misc/bridge-utils
@@ -31,36 +30,27 @@ livecd/packages:
 	net-misc/vpnc
 	net-misc/whois
   net-p2p/rtorrent
-### Masked (no keywords)
 	sys-apps/ethtool
 	sys-apps/hdparm
 	sys-apps/hwsetup
-### Masked (no keywords)
 	sys-apps/iproute2
-### Masked (no keywords)
 	sys-apps/memtester
 	sys-apps/netplug
 	sys-block/parted
-### Masked (no keywords)
 	sys-apps/sdparm
 	sys-apps/sg3_utils
 	sys-apps/mlocate
   sys-apps/elfix
 	sys-block/disktype
-### Masked (-amd64)
 	sys-block/partimage
 	sys-block/qla-fc-firmware
-### Masked (no keywords)
 	sys-boot/grub
 	sys-boot/syslinux
-### Masked (no keywords)
 	sys-devel/distcc
-### Masked (no keywords)
 	sys-fs/cryptsetup
 	sys-fs/dmraid
 	sys-fs/dosfstools
 	sys-fs/e2fsprogs
-### Masked (no keywords)
 	sys-fs/lsscsi
 	sys-fs/lvm2
 	sys-fs/mac-fdisk
