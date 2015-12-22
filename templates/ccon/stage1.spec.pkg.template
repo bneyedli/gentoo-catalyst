@@ -1,48 +1,48 @@
 livecd/packages:
-	app-admin/logrotate
+  app-admin/logrotate
 	app-admin/passook
 	app-admin/pwgen
 	app-admin/sudo
-	app-admin/syslog-ng
+	app-admin/rsyslog
   app-admin/localepurge
+  app-emulation/cloud-init
+  app-misc/tmux
 	app-benchmarks/cpuburn
 	app-crypt/gnupg
 	app-editors/vim
 	app-misc/vlock
-  app-misc/tmux
 	app-portage/gentoolkit
 	app-portage/mirrorselect
 	app-portage/ufed
 	app-text/wgetpaste
 	dev-vcs/git
-  sys-devel/bc
+  dev-python/boto
+  dev-python/pip
 	media-gfx/fbgrab
 	net-analyzer/netcat
 	net-analyzer/nmap
 	net-analyzer/tcpdump
 	net-analyzer/traceroute
-  dev-python/boto
 	net-firewall/iptables
-  net-firewall/ufw
 	net-misc/bridge-utils
 	net-misc/dhcpcd
 	net-misc/iputils
-  net-misc/openntpd
 	net-misc/vpnc
 	net-misc/whois
+  net-firewall/ufw
+  net-misc/openntpd
   net-p2p/rtorrent
 	sys-apps/ethtool
 	sys-apps/hdparm
 	sys-apps/hwsetup
 	sys-apps/iproute2
 	sys-apps/memtester
+	sys-apps/mlocate
 	sys-apps/netplug
-	sys-block/parted
 	sys-apps/sdparm
 	sys-apps/sg3_utils
-	sys-apps/mlocate
-  sys-apps/elfix
 	sys-block/disktype
+	sys-block/parted
 	sys-block/partimage
 	sys-block/qla-fc-firmware
 	sys-boot/grub
@@ -62,4 +62,6 @@ livecd/packages:
 	sys-power/acpid
 	sys-process/htop
 	sys-process/vixie-cron
+  sys-apps/elfix
+  sys-devel/bc
 	www-client/links
