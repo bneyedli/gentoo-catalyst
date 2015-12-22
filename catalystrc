@@ -3,6 +3,5 @@
 
 # Uncomment the following to increase the number of threads used to compile.
 export MAKEOPTS="-j6"
-export CCACHE_DIR="/var/data/ccache" 
+export CCACHE_DIR="/var/ccache" 
 export CCACHE_SIZE="2G" 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib
