@@ -18,6 +18,13 @@ livecd/packages:
 	dev-vcs/git
   dev-python/boto
   dev-python/pip
+  games-misc/fortune-mod
+  games-misc/fortune-mod-starwars 
+  games-misc/fortune-mod-strangelove 
+  games-misc/fortune-mod-hitchhiker 
+  games-misc/fortune-mod-dune 
+  games-misc/fortune-mod-dubya 
+  games-misc/fortune-mod-homer
 	media-gfx/fbgrab
 	net-analyzer/netcat
 	net-analyzer/nmap
