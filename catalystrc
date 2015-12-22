@@ -2,7 +2,7 @@
 # This is an example catalystrc. As such, it doesn't actually *do* anything.
 
 # Uncomment the following to increase the number of threads used to compile.
-export MAKEOPTS="-j7"
+export MAKEOPTS="-j6"
 export CCACHE_DIR="/var/data/ccache" 
 export CCACHE_SIZE="2G" 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib
