@@ -48,6 +48,7 @@ livecd/packages:
 	sys-boot/grub
 	sys-boot/syslinux
 	sys-devel/distcc
+  sys-devel/bc
 	sys-fs/cryptsetup
 	sys-fs/dmraid
 	sys-fs/dosfstools
