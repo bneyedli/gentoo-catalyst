@@ -1,5 +1,5 @@
 subarch: ###SUB_ARCH###
-version_stamp: ###VERSION###
+version_stamp: ###BUILD_VER###
 target: livecd-stage1
 rel_type: ###REL_TYPE###
 profile: ###REL_PROFILE###

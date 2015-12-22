@@ -1,12 +1,16 @@
 livecd/cdtar: /usr/lib/catalyst/livecd/cdtar/isolinux-elilo-memtest86+-cdtar.tar.bz2
+livecd/users: bnadmin
 livecd/fsscript: /etc/catalyst/release/releng/releases/weekly/scripts/livecd.sh
 livecd/fsscript: /etc/catalyst/scripts/wrangle.sh
 livecd/fstype: squashfs
 livecd/gk_mainargs: --oldconfig --makeopts=-j7
-livecd/iso: ###SUB_ARCH###-###REL_TYPE###-installer-###VERSION###.iso
+livecd/iso: ###REL_NAME###-###SUB_ARCH###-###REL_TYPE###-installer-###BUILD_VER###.iso
 livecd/type: gentoo-release-livecd
 livecd/users: ###USERS###
 livecd/volid: ccon.io livecd
-livecd/rcadd: sshd
+livecd/rcadd: sshd|default
+livecd/rcdel: autoconfig|default
+livecd/rcdel: fixinittab|default
+livecd/rcdel: unmute|default
 livecd/overlay: /etc/catalyst/overlays/common/overlay/livedvd
 livecd/root_overlay: /etc/catalyst/overlays/common/root_overlay
