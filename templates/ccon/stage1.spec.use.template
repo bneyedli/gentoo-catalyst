@@ -2,4 +2,5 @@ livecd/use:
 	livecd
 	loop-aes
 	socks5
+  elasticsearch
   -X
