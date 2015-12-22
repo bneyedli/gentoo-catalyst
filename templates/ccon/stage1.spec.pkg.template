@@ -4,6 +4,7 @@ livecd/packages:
 	app-admin/pwgen
 	app-admin/sudo
 	app-admin/syslog-ng
+  app-admin/localepurge
 	app-benchmarks/cpuburn
 	app-crypt/gnupg
 	app-editors/vim
