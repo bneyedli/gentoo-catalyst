@@ -1,0 +1,7 @@
+livecd/use:
+	livecd
+	loop-aes
+  elasticsearch
+  offensive
+  deblob
+  -X

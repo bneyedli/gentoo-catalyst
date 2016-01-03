@@ -1,0 +1,81 @@
+if [[ -e /etc/conf.d/clock ]]
+then
+	sed -i -e 's/#TIMEZONE="Factory"/TIMEZONE="UTC"/' /etc/conf.d/clock
+fi
+
+/usr/sbin/ntpd -s
+
+useradd -m -c "Build Engineer" ###BUILD_BUILDER### || echo "Could not add user: ###BUILD_BUILDER###"
+gpasswd -a ###BUILD_BUILDER### wheel || echo "Could not add user to group wheel"
+chmod 755 /home/ || echo "Could not chmod home"
+chown root:root /home || echo "Could not chown home"
+mkdir -p /home/###BUILD_BUILDER###/.ssh || echo "Could not make user home"
+
+mkdir -p /home/###BUILD_BUILDER###/Projects/git || echo "Could not make project dir"
+cd /home/###BUILD_BUILDER###/Projects/git || echo "Could not enter project dir"
+/usr/bin/git clone https://github.com/ccon-io/devops_tools || echo "could not clone tools"
+cd devops_tools/gentoo 
+./install.sh
+
+chmod 700 /home/###BUILD_BUILDER###/.ssh || echo "Could not chmod dotfiles"
+echo "${BUILD_BUILDER_KEY}" > /home/###BUILD_BUILDER###/.ssh/authorized_keys || echo "Could not install ssh key"
+chmod 600 /home/###BUILD_BUILDER###/.ssh/authorized_keys || echo "Could not chmod key"
+chown -R ###BUILD_BUILDER###:###BUILD_BUILDER### /home/###BUILD_BUILDER### || echo "Could not chown user home"
+chmod 755 /etc/local.d/*.start || echo "Could not chmod start file"
+
+echo "root:$(pwgen -s -1 50)" | chpasswd --md5 root || echo "Could not scramble root pass"
+echo "###BUILD_BUILDER###:$(pwgen -s -1 50)" | chpasswd --md5 ###BUILD_BUILDER### || echo "Could not scramble user pass"
+userdel gentoo || echo "Could not del gentoo user"
+rm -rf /home/gentoo || echo "Could not rm gentoo home"
+
+sed -i 's/IPV6\=yes/IPV6\=no/' /etc/default/ufw
+
+/usr/sbin/ufw allow log SSH
+/usr/sbin/ufw limit SSH
+
+chown -R root:root /etc/
+chown root:root /*
+chmod 755 /
+
+/usr/local/bin/mm rkhunter
+
+mkdir /var/lib/rkhunter/tmp
+/usr/sbin/rkhunter --propupd
+/usr/sbin/rkhunter --update --versioncheck
+
+/usr/bin/aide -i --config=/etc/aide/aide.conf
+cp /var/lib/aide/aide.db.new /var/lib/aide/aide.db
+
+/usr/bin/pip install awscli
+/usr/bin/pip install slacker-cli
+/usr/bin/eix-update
+/usr/bin/localepurge 2> /dev/null | grep "^ *"
+
+/usr/bin/localedef --list-archive | grep -v -i ^en | xargs /usr/bin/localedef --delete-from-archive
+
+sed -i 's/livecd/###TARGET_HOST###/' /etc/conf.d/hostname
+sed -i 's/###DNSDOMAIN###/###TARGET_DOMAIN###/' /etc/conf.d/net
+sed -i -e 's/livecd\.gentoo/###TARGET_HOST###\.###TARGET_DOMAIN###/' -e 's/livecd/###TARGET_HOST###/' /etc/hosts
+
+case `uname -m` in
+	alpha)
+		echo >> /etc/sysctl.conf
+		echo "# Disable UAC on Alpha" >> /etc/sysctl.conf
+		echo "kernel.uac.noprint = 1" >> /etc/sysctl.conf
+	;;
+	i?86|x86_64)
+		sed -i 's/DRIVER fbdev/DRIVER vesa/' /usr/share/hwdata/Cards
+	;;
+esac
+
+# Enforce a unicode font by default
+sed -e 's/CONSOLEFONT="default8x16"/CONSOLEFONT="lat1-16"/' \
+	-e '/^#CONSOLETRANSLATION="8859-1_to_uni"/ s/^#//' \
+	-i /etc/conf.d/consolefont
+
+sed -i 's/^.*\/usr\/portage.*$//' /etc/fstab 
+
+echo "$(date +%s)" >> /etc/sys-epoch
+
+ls /usr/share/terminfo/
+exit 0                                                                          
