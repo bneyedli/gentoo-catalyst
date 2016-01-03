@@ -49,7 +49,7 @@ cp /var/lib/aide/aide.db.new /var/lib/aide/aide.db
 /usr/bin/pip install awscli
 /usr/bin/pip install slacker-cli
 /usr/bin/eix-update
-/usr/bin/localepurge 2> /dev/null | grep "^ *"
+/usr/bin/localepurge | grep "^ *" 2> /dev/null
 
 /usr/bin/localedef --list-archive | grep -v -i ^en | xargs /usr/bin/localedef --delete-from-archive
 

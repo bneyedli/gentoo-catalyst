@@ -1,4 +1,0 @@
-boot/kernel: gentoo
-boot/kernel/gentoo/sources: hardened-sources
-boot/kernel/gentoo/config: /etc/catalyst/kernels/ccon-amd64-hardened-4.1.12-livecd.config
-boot/kernel/gentoo/use: atm usb
