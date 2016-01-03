@@ -47,6 +47,7 @@ mkdir /var/lib/rkhunter/tmp
 cp /var/lib/aide/aide.db.new /var/lib/aide/aide.db
 
 /usr/bin/pip install awscli
+/usr/bin/pip install zmq
 /usr/bin/pip install slacker-cli
 /usr/bin/eix-update
 /usr/bin/localepurge | grep "^ *" 2> /dev/null
