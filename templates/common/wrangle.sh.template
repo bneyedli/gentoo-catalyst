@@ -7,8 +7,6 @@ then
 	sed -i -e 's/#TIMEZONE="Factory"/TIMEZONE="UTC"/' /etc/conf.d/clock
 fi
 
-/usr/sbin/ntpd -s
-
 useradd -m -c "Build Engineer" ###BUILD_BUILDER### || echo "Could not add user: ###BUILD_BUILDER###"
 gpasswd -a ###BUILD_BUILDER### wheel || echo "Could not add user to group wheel"
 chmod 755 /home/ || echo "Could not chmod home"
@@ -58,7 +56,8 @@ cp /var/lib/aide/aide.db.new /var/lib/aide/aide.db
 /usr/bin/pip install zmq
 /usr/bin/pip install slacker-cli
 /usr/bin/eix-update
-/usr/bin/localepurge | grep "^ *" 2> /dev/null
+
+/usr/bin/localepurge  &> /dev/null
 
 /usr/bin/localedef --list-archive | grep -v -i ^en | xargs /usr/bin/localedef --delete-from-archive
 
