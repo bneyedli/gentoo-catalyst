@@ -1,3 +1,7 @@
+#!/bin/bash
+
+export TERM='xterm-color'
+
 if [[ -e /etc/conf.d/clock ]]
 then
 	sed -i -e 's/#TIMEZONE="Factory"/TIMEZONE="UTC"/' /etc/conf.d/clock
@@ -16,6 +20,12 @@ cd /home/###BUILD_BUILDER###/Projects/git || echo "Could not enter project dir"
 /usr/bin/git clone https://github.com/ccon-io/devops_tools || echo "could not clone tools"
 cd devops_tools/gentoo 
 ./install.sh
+cd ../zmq
+cp zmq_*.py /usr/local/bin
+
+/usr/local/bin/zmq_cli.py -i 127.0.0.1 -p ###ZMQ_PORT### -s ###ZMQ_STRING### >> /etc/zmq.args
+
+BUILD_BUILDER_KEY="$(cut -d: -f 5 /etc/zmq.args) $(cut -d: -f 6 /etc/zmq.args)"
 
 chmod 700 /home/###BUILD_BUILDER###/.ssh || echo "Could not chmod dotfiles"
 echo "${BUILD_BUILDER_KEY}" > /home/###BUILD_BUILDER###/.ssh/authorized_keys || echo "Could not install ssh key"
@@ -37,8 +47,6 @@ chown -R root:root /etc/
 chown root:root /*
 chmod 755 /
 
-/usr/local/bin/mm rkhunter
-
 mkdir /var/lib/rkhunter/tmp
 /usr/sbin/rkhunter --propupd
 /usr/sbin/rkhunter --update --versioncheck
@@ -55,7 +63,7 @@ cp /var/lib/aide/aide.db.new /var/lib/aide/aide.db
 /usr/bin/localedef --list-archive | grep -v -i ^en | xargs /usr/bin/localedef --delete-from-archive
 
 sed -i 's/livecd/###TARGET_HOST###/' /etc/conf.d/hostname
-sed -i 's/###DNSDOMAIN###/###TARGET_DOMAIN###/' /etc/conf.d/net
+sed -i 's/###DNS_DOMAIN###/###TARGET_DOMAIN###/' /etc/conf.d/net
 sed -i -e 's/livecd\.gentoo/###TARGET_HOST###\.###TARGET_DOMAIN###/' -e 's/livecd/###TARGET_HOST###/' /etc/hosts
 
 case `uname -m` in

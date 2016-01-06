@@ -7,4 +7,3 @@ export CCACHE_DIR="/var/ccache"
 export CCACHE_SIZE="2G" 
 export PYTHON_TARGETS="python2_7"
 export DONT_MOUNT_BOOT="1"
-export TERM='xterm-color'

@@ -9,7 +9,7 @@ livecd/packages:
 	app-editors/vim
   app-emulation/cloud-init
   app-forensics/aide 
-#  app-forensics/rkhunter
+  app-forensics/rkhunter
   app-misc/tmux
 	app-misc/vlock
   app-portage/layman
