@@ -5,5 +5,5 @@ rel_type: ###REL_TYPE###
 profile: ###REL_PROFILE###
 snapshot: ###REL_SNAPSHOT###
 source_subpath: ###SRC_PATH###
-kerncache_path: /var/data/catalyst/kerncache/###REL_NAME###
 portage_confdir: /etc/catalyst/overlays/common/portage
+kerncache_path: /var/data/catalyst/kerncache/###REL_NAME###

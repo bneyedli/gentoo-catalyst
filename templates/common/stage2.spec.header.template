@@ -7,5 +7,3 @@ snapshot: ###REL_SNAPSHOT###
 source_subpath: ###SRC_PATH###
 portage_confdir: /etc/catalyst/overlays/common/portage
 kerncache_path: /var/data/catalyst/kerncache/###REL_NAME###
-update_seed: yes
-update_seed_command: --update --deep --new-use @world
